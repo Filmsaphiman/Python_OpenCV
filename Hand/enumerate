@@ -1,0 +1,157 @@
+"""
+The enumerate() function is a Python built-in function that takes an iterable (a collection of items
+or any other Python object that supports iteration, such as tuples, lists, sets, or strings), iterates
+through its items under the hood, and returns an enumerate object. In other words, this function assigns
+a count incrementing by 1 to each item of an iterable and helps us track iterations while looping through
+that object. After creating an enumerate object, we can then convert it into a list, a tuple, or a dictionary
+(using the list(), tuple(), or dict() functions respectively), or to loop directly through this object to access
+both the items and their corresponding indices.
+
+Using the enumerate() function is useful from the standpoint of its memory and computing efficiency compared to
+using for-loops since it returns the index and the corresponding item at one go.
+"""
+
+"""
+ฟังก์ชัน enumerate() เป็นฟังก์ชันในตัวของ Python ที่รับการวนซ้ำ (คอลเลกชันของรายการหรืออ็อบเจ็กต์ Python อื่น ๆ ที่รองรับการวนซ้ำ เช่น สิ่งอันดับ รายการ ชุด หรือสตริง)
+วนซ้ำรายการต่างๆ ภายใต้ประทุน และส่งคืนวัตถุแจกแจง กล่าวอีกนัยหนึ่ง ฟังก์ชันนี้จะกำหนดการนับที่เพิ่มขึ้น 1 ให้กับแต่ละรายการของการวนซ้ำ และช่วยให้เราติดตามการวนซ้ำ
+ในขณะที่วนซ้ำผ่านวัตถุนั้น หลังจากสร้างวัตถุแจกแจงแล้ว เราสามารถแปลงมันเป็นรายการ ทูเพิล หรือพจนานุกรม (โดยใช้ฟังก์ชัน list(), tuple() หรือ dict() ตามลำดับ)
+หรือเพื่อวนซ้ำโดยตรงผ่านวัตถุนี้เพื่อเข้าถึงทั้งสองอย่าง รายการและดัชนีที่เกี่ยวข้อง
+
+การใช้ฟังก์ชัน enumerate() มีประโยชน์ในแง่ของหน่วยความจำและประสิทธิภาพการประมวลผลเมื่อเปรียบเทียบกับการใช้ for-loops
+เนื่องจากฟังก์ชันจะส่งคืนดัชนีและรายการที่เกี่ยวข้องในคราวเดียว
+"""
+"""
+https://www.datacamp.com/tutorial/python-enumerate-tutorial?utm_source=google&utm_medium=paid_search&utm_campaignid
+=19589720824&utm_adgroupid=143216588537&utm_device=c&utm_keyword=&utm_matchtype=&utm_network=g&utm_adpostion=&utm_creative=
+671350460573&utm_targetid=aud-517318242147:dsa-1947282172981&utm_loc_interest_ms=&utm_loc_physical_ms=9073371&utm_content=dsa
+~page~community-tuto&utm_campaign=230119_1-sea~dsa~tutorials_2-b2c_3-row-p2_4-prc_5-na_6-na_7-le_8-pdsh-go_9-na_10-na_11-na-
+fawaug23&gclid=Cj0KCQjwi7GnBhDXARIsAFLvH4kkB3Cpcgqt6FL1zCPWoemPOc6KC1ftOcoxU7Eo4mxX_Fg3Jbkuao4aAnveEALw_wcB
+"""
+
+"""
+drinks = ['tea', 'coffee', 'cappuccino', 'lemonade']
+enumerated_drinks = enumerate(drinks)
+print(type(enumerated_drinks))
+print(enumerated_drinks)
+
+/Output\
+<class 'enumerate'>
+<enumerate object at 0x000002DC3A1145C0>
+"""
+########################################################################################################################
+"""
+print(enumerated_drinks[0])
+
+/Output\
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+~\AppData\Local\Temp/ipykernel_5948/1233607596.py in <module>
+----> 1 print(enumerated_drinks[0])
+
+TypeError: 'enumerate' object is not subscriptable
+
+This code is written in Python.
+• The error message indicates that the code is trying to access an element of an object of type 'enumerate',
+  which is not possible because 'enumerate' objects are not subscriptable.
+• To fix this error, the code should be modified to convert the 'enumerate' object to a list or tuple before trying to
+  access its elements.
+• For example:``pythonenumerated_drinks = list(enumerate(['coffee', 'tea', 'juice']))print(enumerated_drinks[0])``
+  This would output the first element of the enumerated_drinks list, which is a tuple containing the index (0)
+  and the first drink ('coffee').
+
+รหัสนี้เขียนด้วยภาษา Python
+• ข้อความแสดงข้อผิดพลาดระบุว่าโค้ดพยายามเข้าถึงองค์ประกอบของออบเจ็กต์ประเภท 'แจงนับ' ซึ่งไม่สามารถทำได้เนื่องจากออบเจ็กต์ 'แจงนับ' ไม่สามารถห้อยได้
+• เพื่อแก้ไขข้อผิดพลาดนี้ ควรแก้ไขโค้ดเพื่อแปลงวัตถุ 'ระบุ' เป็นรายการหรือทูเพิลก่อนที่จะพยายามเข้าถึงองค์ประกอบต่างๆ
+• ตัวอย่างเช่น:``pythonenumerated_drinks = list(enumerate(['coffee', 'tea', 'juice']))print(enumerated_drinks[0])``
+  นี่จะเป็นเอาต์พุตองค์ประกอบแรกของรายการ enumerated_drinks ซึ่งเป็น สิ่งอันดับที่มีดัชนี (0) และเครื่องดื่มแก้วแรก ('กาแฟ')
+"""
+########################################################################################################################
+"""
+list_enumerated_drinks = list(enumerated_drinks)
+print(list_enumerated_drinks)
+
+/Output\
+[(0, 'tea'), (1, 'coffee'), (2, 'cappuccino'), (3, 'lemonade')]
+"""
+########################################################################################################################
+"""
+print(list_enumerated_drinks[0])
+print(list_enumerated_drinks[0][1])
+
+/Output\
+(0, 'tea')
+tea
+"""
+########################################################################################################################
+"""
+print(list(enumerated_drinks))
+
+/Output\
+[]
+"""
+########################################################################################################################
+"""
+tuple_enumerated_drinks = tuple(enumerate(drinks, start=1))
+print(tuple_enumerated_drinks)
+
+/Output\
+((1, 'tea'), (2, 'coffee'), (3, 'cappuccino'), (4, 'lemonade'))
+"""
+########################################################################################################################
+"""
+drinks = ('tea', 'coffee', 'cappuccino', 'lemonade')
+enumerated_drinks = enumerate(drinks)
+print(enumerated_drinks)
+
+/Output\
+<enumerate object at 0x000002DC3A098D40>
+"""
+########################################################################################################################
+"""
+enumerated_drinks = enumerate(drinks)
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+
+/Output\
+(0, 'tea')
+(1, 'coffee')
+(2, 'cappuccino')
+(3, 'lemonade')
+
+---------------------------------------------------------------------------
+StopIteration                             Traceback (most recent call last)
+~\AppData\Local\Temp/ipykernel_5948/330134057.py in <module>
+      4 print(next(enumerated_drinks))
+      5 print(next(enumerated_drinks))
+----> 6 print(next(enumerated_drinks))
+
+StopIteration:
+"""
+########################################################################################################################
+"""
+enumerated_drinks = enumerate(drinks)
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+print(next(enumerated_drinks))
+
+/Output\
+(0, 'tea')
+(1, 'coffee')
+(2, 'cappuccino')
+(3, 'lemonade')
+
+---------------------------------------------------------------------------
+StopIteration                             Traceback (most recent call last)
+~\AppData\Local\Temp/ipykernel_5948/330134057.py in <module>
+      4 print(next(enumerated_drinks))
+      5 print(next(enumerated_drinks))
+----> 6 print(next(enumerated_drinks))
+
+StopIteration:
+"""
+########################################################################################################################
